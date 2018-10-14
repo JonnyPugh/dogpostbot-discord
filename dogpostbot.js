@@ -8,10 +8,10 @@ function choice(list) {
 }
 
 function getRandomFile(rootFolder) {
-  var folders = fs.readdirSync(rootFolder);
+  let folders = fs.readdirSync(rootFolder);
   while (true) {
     let folderPath = rootFolder + '/' + choice(folders);
-    var files = fs.readdirSync(folderPath);
+    let files = fs.readdirSync(folderPath);
     if (files.length) {
       return folderPath + '/' + choice(files);
     }
