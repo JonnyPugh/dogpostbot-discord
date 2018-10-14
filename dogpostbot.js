@@ -18,12 +18,20 @@ function getRandomFile(rootFolder) {
   }
 }
 
+function sendDog(message) {
+  message.channel.send(new Discord.Attachment(getRandomFile(config['imageFolder'])));
+}
+
 const client = new Discord.Client();
 
 client.on('message', message => {
   if (message.content === '!dog') {
-    const attachment = new Discord.Attachment(getRandomFile(config['imageFolder']));
-    message.channel.send(attachment);
+    sendDog(message);
+  } else if (/^!dog [0-9]*$/.test(message.content)) {
+    var numberOfDogs = message.content.split(" ")[1];
+    while (numberOfDogs--) {
+      sendDog(message);
+    }
   }
 });
 
