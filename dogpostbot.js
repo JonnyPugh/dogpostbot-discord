@@ -29,6 +29,9 @@ client.on('message', message => {
     sendDog(message);
   } else if (/^!dog [0-9]*$/.test(message.content)) {
     var numberOfDogs = message.content.split(" ")[1];
+    if (numberOfDogs > 10 || numberOfDogs < 1) {
+      numberOfDogs = 1;
+    }
     while (numberOfDogs--) {
       sendDog(message);
     }
