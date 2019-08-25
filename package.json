@@ -2,14 +2,19 @@
   "name": "dogpostbot",
   "version": "0.0.1",
   "description": "Discord bot that posts dogs",
-  "main": "dogpostbot.js",
+  "main": "index.js",
   "author": "Jonathan Pugh",
   "dependencies": {
+    "axios": "^0.19.0",
     "discord.js": "11.4.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JonnyPugh/dogpostbot-discord.git"
+  }
 }
