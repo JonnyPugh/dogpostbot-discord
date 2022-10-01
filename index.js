@@ -1,16 +1,23 @@
-const Discord = require('discord.js');
-const axios = require('axios');
+const { Client, GatewayIntentBits } = require('discord.js');
+const { get } = require('axios');
+
+const client = new Client({
+  // https://discordjs.guide/popular-topics/intents.html
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent
+  ]
+});
 
 const sendDogs = async (message, numDogs) => {
-  const dogImages = (await axios.get(`https://dog.ceo/api/breeds/image/random/${numDogs}`)).data.message;
+  const dogImages = (await get(`https://dog.ceo/api/breeds/image/random/${numDogs}`)).data.message;
   for (const dogImage of dogImages) {
-    message.channel.send(new Discord.Attachment(dogImage));
+    message.channel.send({files: [dogImage]});
   }
 }
 
-const client = new Discord.Client();
-
-client.on('message', message => {
+client.on('messageCreate', message => {
   if (message.content === '!dog') {
     sendDogs(message, 1);
   } else if (/^!dog [0-9]*$/.test(message.content)) {
