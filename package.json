@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "Jonathan Pugh",
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.0",
     "discord.js": "^14.5.0"
   },
   "devDependencies": {},
