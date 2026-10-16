@@ -1,1 +1,9 @@
 node_modules
+npm-debug.log
+coverage
+.git
+.github
+test
+eslint.config.js
+Dockerfile
+.dockerignore
